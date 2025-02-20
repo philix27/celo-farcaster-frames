@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useState } from "react";
-import sdk, { type FrameContext } from "@farcaster/frame-sdk";
+import sdk, { Context } from "@farcaster/frame-sdk";
+// import sdk, { type FrameContext } from "@farcaster/frame-sdk";
 import {
   useAccount,
   useSendTransaction,
@@ -14,10 +15,9 @@ import { config } from "./WagmiProvider";
 import { truncateAddress } from "../lib/truncateAddress";
 import { Button } from "@/components/ui/button";
 
-
 export default function Demo() {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
-  const [context, setContext] = useState<FrameContext>();
+  const [context, setContext] = useState<typeof Context>();
   const [isContextOpen, setIsContextOpen] = useState(false);
   const [txHash, setTxHash] = useState<string | null>(null);
 
@@ -196,9 +196,9 @@ export default function Demo() {
               <Button
                 onClick={sendTx}
                 disabled={!isConnected || isSendTxPending}
-                isLoading={isSendTxPending}
+                // isLoading={isSendTxPending}
               >
-                Send Transaction
+                {isSendTxPending ? "Loading..." : "Send Transaction"}
               </Button>
               {isSendTxError && renderError(sendTxError)}
               {txHash && (
@@ -219,9 +219,9 @@ export default function Demo() {
               <Button
                 onClick={sign}
                 disabled={!isConnected || isSignPending}
-                isLoading={isSignPending}
+                // isLoading={isSignPending}
               >
-                Sign Message
+                {isSignPending ? "Loading..." : "Sign Message"}
               </Button>
               {isSignError && renderError(signError)}
             </div>
@@ -229,9 +229,9 @@ export default function Demo() {
               <Button
                 onClick={signTyped}
                 disabled={!isConnected || isSignTypedPending}
-                isLoading={isSignTypedPending}
+                // isLoading={isSignTypedPending}
               >
-                Sign Typed Data
+                {isSignTypedPending ? "Loading..." : "Sign Typed Data"}
               </Button>
               {isSignTypedError && renderError(signTypedError)}
             </div>
