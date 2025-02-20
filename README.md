@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# V2 Farcaster Wordle Game  | Cryptodle
 
-## Getting Started
+This is a Wordle game for V2 Farcaster frames. This shows how to get up and running with a simple worlde game with farcaster.
 
-First, run the development server:
+## Setup & Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Set environment variables
+
+Create a copy of `.env.example` and rename it to `.env`.
+
+#### Add Wallet Connect ID
+
+Create a WalletConnect Cloud Project ID from [WalletConnect Cloud](https://cloud.walletconnect.com/)
+
+Provide the WalletConnect Cloud Project ID in your `.env` file to use WalletConnect in your project. As shown in the `.env.example` file.
+
+```typescript
+TS_PUBLIC_PROJECT_ID=YOUR_EXAMPLE_PROJECT_ID;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install all the required dependencies to run the dApp.
 
-## Learn More
+Using **yarn**
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+or using **npm**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm i
+```
 
-## Deploy on Vercel
+> Next.js + Tailwind CSS Template does not have any dependency on hardhat.
+> This starterkit does not include connection of Hardhat/Truffle with Next.js. It's up to the user to integrate smart contract with Next.js. This gives user more flexibility over the dApp.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- To start the dApp, run the following command.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+yarn dev
+```
+
+## UI Components
+
+To add a component from the shadcn library run:
+
+```bash
+npx shadcn@latest add <component-name>
+```
+
+The component will be added to the `src/libs/components/ui` dir
+
+
+## Dependencies
+
+- Next.js app framework
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [UI Components](https://ui.shadcn.com/) - Shadcn  
+- [Wagmi](https://wagmi.sh/) for onchain transactions
+
+```

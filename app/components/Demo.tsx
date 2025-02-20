@@ -1,6 +1,6 @@
+"use client";
 import { useEffect, useCallback, useState } from "react";
 import sdk, { Context } from "@farcaster/frame-sdk";
-// import sdk, { type FrameContext } from "@farcaster/frame-sdk";
 import {
   useAccount,
   useSendTransaction,
@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Demo() {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
-  const [context, setContext] = useState<typeof Context>();
+  const [context, setContext] = useState<Context.FrameContext>();
   const [isContextOpen, setIsContextOpen] = useState(false);
   const [txHash, setTxHash] = useState<string | null>(null);
 
